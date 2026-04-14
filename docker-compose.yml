@@ -1,0 +1,11 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    platform: linux/amd64
+    container_name: trading_rabbitmq
+    ports:
+      - "5672:5672"   # The core port FastAPI will use to send messages
+      - "15672:15672" # The web dashboard port
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: password123
